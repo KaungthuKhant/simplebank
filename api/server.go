@@ -18,6 +18,8 @@ func NewServer(store *db.Store) *Server {
 
 	// add router to router
 	router.POST("/accounts", server.createAccount) // CreateAccount needs to be a method because we need to get acces to the object in order to save new account to the database
+	router.GET("/accounts/:id", server.getAccount) // id is uri parameter
+	router.GET("/accounts", server.listAccount)
 
 	// ser router object to server.router
 	server.router = router
